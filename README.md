@@ -15,4 +15,4 @@ flask run # opens the UI on localhost:5000
 
 ```
 
-The UI is self-explanatory.
+The UI is self-explanatory. Data may be incomplete, use at your own risk.
