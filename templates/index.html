@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+        <title>SIR (School Infrastructure Rating)</title>
+    </head>
+    <body>
+        <h2>School Infrastructure Rating (SIR)</h2>
+
+        <div class="inputs">
+            <form id="inputField" method="post" action="{{ url_for('rate_school') }}">
+                <input class="text-field" type="text" name="schoolSearch" placeholder="Search for a school"></input>
+                <input type="submit" value="Submit"></input>
+            </form>
+        </div>
+
+        <h2>Search matches</h2>
+
+        <div id="displayResults">
+            <table border id="resultsTable">
+                <tr>
+                    <th class="school-col">School</th>
+                    <th>Proximity to bus stops</th>
+                    <th>Nearby Pedestrian Crossings</th>
+                    <th>Playground Rating</th>
+                    <th>Overall rating</th>
+                </tr>
+                {% for school in schools %}
+                    <tr>
+                        <td>{{ school[0] }}</td>
+                        <td>{{ school[1] }}</td>
+                        <td>{{ school[2] }}</td>
+                        <td>{{ school[3] }}</td>
+                        <td>{{ school[4] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
